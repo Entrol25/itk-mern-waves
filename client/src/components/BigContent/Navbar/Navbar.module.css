@@ -1,0 +1,12 @@
+.nav{
+background-color: rgb(222, 197, 240);
+}
+.item a{
+	color: black;
+	text-decoration: none;
+}
+.item a.activeLinc{
+	color: black;
+	font-weight: bold;
+	font-size: larger;
+}

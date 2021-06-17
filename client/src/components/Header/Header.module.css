@@ -1,0 +1,7 @@
+.header{
+  /*grid-area: h;// псевдоним гриды. переделать на флекс */
+  background: #7c9473;
+}
+.header img{
+  width: 60px;
+}
