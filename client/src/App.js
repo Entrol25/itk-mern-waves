@@ -9,7 +9,7 @@ import Start from './components/BigContent/Start/Start.jsx'
 import Game from './components/BigContent/Game/Game.jsx'
 import News from './components/BigContent/News/News.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import state from './redux/state.js'
+//import state from './redux/state.js'
 
 const App = (props) => {
   const routes = useRoutes(false)

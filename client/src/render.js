@@ -1,3 +1,4 @@
+/* УДАЛИЛ
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -18,3 +19,4 @@ export let reRender = (state) => {
     document.getElementById('root')
   );
 }
+*/

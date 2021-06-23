@@ -1,5 +1,7 @@
-import { reRender } from '../render.js'
-
+//import { reRender } from '../render.js'
+let reRender = () => { // переопределяется из subscribe()
+  console.log('State changed')
+}
 let state = {
   settings: {
     ui: [
@@ -15,8 +17,8 @@ let state = {
   },
   newtext: 'QWERTY'
 }
-//window.state = state
-export let addLang = (postLang) => {
+window.state = state //**************************************************
+export const addLang = (postLang) => {
   state.settings.ui[0].lang = postLang
   //state[0].lang = postLang
   //console.log(postLang + " postLang (1)")
@@ -27,16 +29,18 @@ export let addLang = (postLang) => {
   //console.log(newSotial + " newSotial (3)")
   reRender(state)
 }
-export let addMessage = () => {
+export const addMessage = () => {
   let newElementArr = { name: state.newtext }
   //debugger;
   state.crypto.coin.push(newElementArr)
   state.newtext = ''
   reRender(state)
 }
-export let updateMessage = (newText) => {
+export const updateMessage = (newText) => {
   state.newtext = newText
   reRender(state)
 }
-
+export const subscribe = (observer) => {
+  reRender = observer // паттерн наблюдатель-observer
+}
 export default state
