@@ -1,6 +1,19 @@
 import React from 'react'
 import cl from './Header.module.css'
-
+import {
+  MyLangActionCreator, btnAddMessageActionCreator,
+  onTextChangeActionCreator
+} from '../../redux/state.js'
+// let MyLangActionCreator = (lang) => {//                         lang
+//   //                        из store
+//   return { type: 'ADD-LANG', newLang: lang }
+// }
+// let btnAddMessageActionCreator = () => {//                      button
+//   return { type: 'ADD-MESSAGE' }
+// }
+// let onTextChangeActionCreator = (text) => {//                   textarea
+//   return { type: 'UPDATE-MESSAGE', newText: text }
+// }
 const Header = (props) => {
   /*
   //let val = props
@@ -22,23 +35,24 @@ const Header = (props) => {
   })
   let Coin = props.state.crypto.coin.map((count) => {
     return (count.name + ' ')
-  })
-  let SelectLang = React.createRef()
+  })//---------------------------------------------
+  let SelectLang = React.createRef() //                         lang
   let MyLang = () => {
     let lang = SelectLang.current.value
-    props.addLang(lang) // alert('Выбран ' + lang)
+    props.dispatch(MyLangActionCreator(lang))
   }//---------------------------------------------
-  let addMessage = React.createRef()
+  let addMessage = React.createRef() //                         button
   let btnAddMessage = () => {
-    props.addMessage()
+    props.dispatch(btnAddMessageActionCreator())
+    // console.log("button-1")
   }//---------------------------------------------
-  let onTextChange = () => {
-    let addText = addMessage.current.value
-    props.updateMessage(addText)
-  }
+  let onTextChange = () => { //                                 textarea
+    let text = addMessage.current.value
+    props.dispatch(onTextChangeActionCreator(text))
+  }//---------------------------------------------
   return (
     <header className={cl.header}>
-      <img src="logo192.png" alt="logo192" />
+      <img src="../logo192.png" alt="logo192" />
       <h1>Header</h1>
       <h1>{Lang}</h1>
       <h4>{Coin}</h4>
@@ -56,6 +70,5 @@ const Header = (props) => {
       </ div>
     </header>
   )
-}
-// <img src="logo192.png" alt="logo192" />
+} // <img src="logo192.png" alt="logo192" />
 export default Header

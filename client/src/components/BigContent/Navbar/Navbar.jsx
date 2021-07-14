@@ -13,6 +13,7 @@ const NavItem = (props) => {
   // path = "/" + to2 + "/" + lang2
   return (
     <div className={cl.item}>
+      {/* NavLink - меняет url в браузере */}
       <NavLink to={path} activeClassName={cl.activeLinc}>{props.page}</NavLink>
     </div>
   )
