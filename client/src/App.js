@@ -18,9 +18,6 @@ const App = (props) => {
         {routes}
         <Header state={props.state} newtext={props.state.newtext}
           dispatch={props.dispatch}
-        // newtext={props.state.newtext}
-        //   addLang={props.addLang} addMessage={props.addMessage}
-        //   updateMessage={props.updateMessage} 
         />
 
         <Navbar state={props.state} />

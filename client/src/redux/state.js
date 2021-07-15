@@ -34,51 +34,17 @@ let store = {// = объект
   _reRender() { // переопределяется из subscribe()
     console.log('State changed')
   },
-  // addLang(postLang) {
-  //   this._state.settings.ui[0].lang = postLang
-  //   this._reRender(this._state)
-  // },
-  // addMessage() {
-  //   let newElementArr = { name: this._state.newtext }
-  //   this._state.crypto.coin.push(newElementArr)
-  //   this._state.newtext = ''
-  //   this._reRender(this._state)
-  // },
-  // updateMessage(newText) {
-  //   this._state.newtext = newText
-  //   this._reRender(this._state)
-  // },
-  dispatch(action) { // action - {type: 'string'}
+  dispatch(action) { // action - объект имеет как минимум type {type: 'string'}
+    // action - диспатчим в store
+    this._state.settings.ui[0].lang =
+      settingsReduser(this._state.settings.ui[0].lang, action)
 
-    this._state.settings.ui[0].lang = settingsReduser(this._state.settings.ui[0].lang, action)
-    this._state.crypto.coin = cryptoReduser(this._state.crypto.coin, action)
+    // this._state.crypto.coin = cryptoReduser(this._state.crypto.coin, action)
+    this._state.crypto.coin =
+      cryptoReduser(this._state.crypto.coin, this._state, action)
+
     this._state = newtextReduser(this._state, action)
     this._reRender(this._state)
-
-    // if (action.type === ADD_LANG) {//                       Lang
-    //   this._state.settings.ui[0].lang = action.newLang
-    //   this._reRender(this._state)
-    // }
-    // else if (action.type === ADD_MESSAGE) {//               button
-    //   let newElementArr = { name: this._state.newtext }
-    //   this._state.crypto.coin.push(newElementArr)
-    //   this._state.newtext = ''
-    //   this._reRender(this._state)
-    // }
-    // else if (action.type === ADD_MESSAGE_2) {//              button-2
-    //   let newElementArr = { name: this._state.newtext2 }
-    //   this._state.crypto.coin.push(newElementArr)
-    //   this._state.newtext2 = ''
-    //   this._reRender(this._state)
-    // }
-    // else if (action.type === UPDATE_MESSAGE) {//             textarea
-    //   this._state.newtext = action.newText
-    //   this._reRender(this._state)
-    // }
-    // else if (action.type === UPDATE_MESSAGE_2) {//           textarea-2
-    //   this._state.newtext2 = action.newText2
-    //   this._reRender(this._state)
-    // }
   }
 }
 export const MyLangActionCreator = (lang) => {//              lang

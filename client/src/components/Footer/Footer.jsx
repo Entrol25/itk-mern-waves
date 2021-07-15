@@ -1,6 +1,7 @@
 import React from 'react';
 import cl from './Footer.module.css'
-import { btnAddMessageActionCreator2, onTextChangeActionCreator2 } from '../../redux/state.js'
+import { btnAddMessageActionCreator2, onTextChangeActionCreator2 }
+  from '../../redux/state.js'
 
 const Footer = (props) => {
   let sotial = [
@@ -16,7 +17,6 @@ const Footer = (props) => {
   //------------------------------------------------------------------------------
   // Dialogs
   //let state = props.store.getState().crypto// 41 video ????????!!!!!!!!!!!!!!!
-
   let Coin = props.state.crypto.coin.map((count) => {
     return (count.name + ' ')
   })
